@@ -1,0 +1,38 @@
+CREATE DATABASE StackProject;
+USE StackProject;
+CREATE TABLE Customers(
+CUS_CODE int NOT NULL,
+CUS_LNAME varchar(10) DEFAULT NULL,
+CUS_FNAM varchar(10) DEFAULT NULL,
+CUS_INITIAL varchar(1) DEFAULT NULL,
+CUS_AREACODE varchar(3) DEFAULT NULL,
+CUS_PHONE varchar(9) DEFAULT NULL,
+CUS_BALANCE float DEFAULT NULL,
+PRIMARY KEY (CUS_CODE)
+) ;
+
+CREATE TABLE order_history (
+id INT(30) NOT NULL,
+user_id INT(15),
+total DECIMAL(15) NOT NULL,
+payment_id INT(25) NOT NULL,
+created_Date TIMESTAMP NOT NULL,
+modified_Date TIMESTAMP,
+UNIQUE KEY order_index (id) ,
+UNIQUE KEY customer_order_index (id,user_id) ,
+PRIMARY KEY (id)
+) ;
+
+CREATE TABLE shopping_cart (
+id int(15) NOT NULL,
+Product VARCHAR(50) NOT NULL,
+SKU VARCHAR(25) NOT NULL,
+category VARCHAR(25) NOT NULL,
+price DECIMAL(5) NOT NULL,
+discount_id int(6) NOT NULL,
+created_date TIMESTAMP NOT NULL,
+modified_date TIMESTAMP,
+UNIQUE KEY prod_index (id) ,
+UNIQUE KEY sku_index (id, SKU),
+PRIMARY KEY (id)
+) ;
